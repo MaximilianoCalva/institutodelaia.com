@@ -1,0 +1,305 @@
+<style>
+    /* Variables de colores Instituto de la IA */
+    :root {
+        --ia-primary-dark: #001C3C;
+        --ia-primary-medium: #003366;
+        --ia-accent: #0066CC;
+        --ia-white: #FFFFFF;
+    }
+
+    /* Reset */
+    .ia-header * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* Banner Superior - Rodrigo de la IA */
+    .ia-top-banner {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        padding: 12px 20px;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .ia-top-banner a {
+        color: white;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 600;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        transition: opacity 0.3s ease;
+    }
+
+    .ia-top-banner a:hover {
+        opacity: 0.8;
+    }
+
+    /* Header Principal */
+    .ia-header {
+        background: linear-gradient(135deg, #001C3C 0%, #003366 100%);
+        padding: 20px 0;
+        box-shadow: 0 4px 20px rgba(0, 28, 60, 0.3);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .ia-header-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Logo */
+    .ia-header-logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+    }
+
+    .ia-logo-image {
+        display: block;
+        height: 35px;
+        max-height: 35px;
+        max-width: 150px;
+        width: auto;
+        object-fit: contain;
+        filter: drop-shadow(0 2px 8px rgba(255, 255, 255, 0.3));
+    }
+
+    .ia-logo-text {
+        color: white;
+        font-size: 20px;
+        font-weight: 800;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        letter-spacing: -0.5px;
+    }
+
+    /* Navegación */
+    .ia-header-nav {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+    }
+
+    .ia-nav-link {
+        color: rgba(255, 255, 255, 0.9);
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 600;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        transition: all 0.3s ease;
+        padding: 8px 16px;
+        border-radius: 8px;
+    }
+
+    .ia-nav-link:hover {
+        color: white;
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Botón Login */
+    .ia-login-btn {
+        background: white;
+        color: #001C3C;
+        padding: 10px 24px;
+        border-radius: 50px;
+        font-size: 15px;
+        font-weight: 700;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .ia-login-btn:hover {
+        background: #f0f0f0;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+    }
+
+    .ia-user-icon {
+        font-size: 18px;
+    }
+
+    /* Menú móvil */
+    .ia-mobile-menu-toggle {
+        display: none;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+        padding: 10px 14px;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+
+    .ia-mobile-menu-toggle:hover {
+        background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .ia-top-banner {
+            padding: 10px 15px;
+        }
+
+        .ia-top-banner a {
+            font-size: 13px;
+        }
+
+        .ia-mobile-menu-toggle {
+            display: block;
+        }
+
+        .ia-header-nav {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: -100%;
+            height: 100vh;
+            width: 300px;
+            max-width: 85%;
+            background: linear-gradient(135deg, #001C3C 0%, #003366 100%);
+            flex-direction: column;
+            padding: 80px 20px 20px;
+            gap: 15px;
+            box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);
+            transition: right 0.4s ease;
+            z-index: 1001;
+        }
+
+        .ia-header-nav.active {
+            display: flex;
+            right: 0;
+        }
+
+        .ia-nav-link {
+            width: 100%;
+            text-align: center;
+            padding: 12px 20px;
+        }
+
+        .ia-login-btn {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .ia-logo-text {
+            font-size: 18px;
+        }
+
+        .ia-logo-image {
+            display: block;
+            height: 35px;
+            max-height: 35px;
+            max-width: 150px;
+            width: auto;
+            object-fit: contain;
+        }
+
+
+
+        /* Overlay para móvil */
+        .ia-menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 999;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .ia-menu-overlay.active {
+            display: block;
+            opacity: 1;
+        }
+    }
+</style>
+
+<!-- Banner Superior - Rodrigo de la IA -->
+<div class="ia-top-banner">
+    <a href="https://chatgpt.com/g/g-68a1066f6e788191ba3fd9c6d210c632-rodrigo-de-la-ia" target="_blank">
+        Habla con Rodrigo de la IA
+    </a>
+</div>
+
+<!-- Header Instituto de la IA -->
+<header class="ia-header">
+    <div class="ia-header-container">
+        <a href="https://institutodelaia.com" class="ia-header-logo">
+            <img src="https://institutodelaia.com/wp-content/uploads/2025/08/IA-instituto-web-01-scaled.png"
+                alt="Instituto de la IA" class="ia-logo-image">
+        </a>
+
+        <nav class="ia-header-nav" id="iaHeaderNav">
+            <a href="https://institutodelaia.com/ia-intensiva/registrate/" class="ia-nav-link">Registrate</a>
+            <a href="https://institutodelaia.com/ia-intensiva/mas-informacion/" class="ia-nav-link">Nuestros
+                Programas</a>
+            <a href="https://institutodelaia.com/cursos/" class="ia-nav-link">Cursos</a>
+            <a href="https://institutodelaia.com/conferencias/" class="ia-nav-link">Conferencias</a>
+            <a href="https://ialideres.com/" class="ia-nav-link" target="_blank">Conoce nuestra comunidad</a>
+        </nav>
+
+        <button class="ia-mobile-menu-toggle" onclick="toggleIAMenu()">
+            ☰
+        </button>
+    </div>
+</header>
+
+<div class="ia-menu-overlay" id="iaMenuOverlay" onclick="closeIAMenu()"></div>
+
+<script>
+    function toggleIAMenu() {
+        const nav = document.getElementById('iaHeaderNav');
+        const overlay = document.getElementById('iaMenuOverlay');
+
+        nav.classList.toggle('active');
+        overlay.classList.toggle('active');
+    }
+
+    function closeIAMenu() {
+        const nav = document.getElementById('iaHeaderNav');
+        const overlay = document.getElementById('iaMenuOverlay');
+
+        nav.classList.remove('active');
+        overlay.classList.remove('active');
+    }
+
+    // Cerrar menú al cambiar tamaño de ventana a desktop
+    window.addEventListener('resize', function () {
+        if (window.innerWidth > 768) {
+            closeIAMenu();
+        }
+    });
+
+    // Cerrar menú con tecla ESC
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+            closeIAMenu();
+        }
+    });
+
+    // Cerrar menú al hacer click en un link
+    document.querySelectorAll('.ia-nav-link, .ia-login-btn').forEach(link => {
+        link.addEventListener('click', () => {
+            closeIAMenu();
+        });
+    });
+</script>
