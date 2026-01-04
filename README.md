@@ -251,9 +251,16 @@ El dashboard incluye:
 - **Comunitario**: Red de apoyo y crecimiento
 - **Actualizado**: Contenido al día con las últimas tendencias
 
-## 📞 Información de Contacto
+## 📞 Información de Contacto y Redes Sociales
 
-*Por definir - agregar cuando esté disponible*
+- **Sitio Web:** [institutodelaia.com](https://institutodelaia.com)
+- **Facebook:** [Instituto de la IA](https://facebook.com/799528416567999)
+- **Instagram:** [@institutodelaia](https://instagram.com/institutodelaia)
+- **TikTok:** [@insitutodelaia](https://www.tiktok.com/@insitutodelaia)
+- **YouTube:** [Instituto de la IA](https://www.youtube.com/channel/UCZOsJ7xixeld24K9Kr8z46w)
+- **WhatsApp:** +52 1 33 3405 4655
+- **Canal WhatsApp:** [Unirse](https://whatsapp.com/channel/0029VbB3YKfGehEKc3jYyc3A)
+- **Email:** hola@institutodelaia.com
 
 ## 🔄 Estado del Proyecto
 
