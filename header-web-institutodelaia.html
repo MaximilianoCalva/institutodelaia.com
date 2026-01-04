@@ -40,7 +40,7 @@
     /* Header Principal */
     .ia-header {
         background: linear-gradient(135deg, #001C3C 0%, #003366 100%);
-        padding: 20px 0;
+        padding: 15px 0;
         box-shadow: 0 4px 20px rgba(0, 28, 60, 0.3);
         position: sticky;
         top: 0;
@@ -54,6 +54,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        min-height: 50px;
     }
 
     /* Logo */
@@ -85,7 +86,7 @@
     /* Navegación */
     .ia-header-nav {
         display: flex;
-        gap: 30px;
+        gap: 20px;
         align-items: center;
     }
 
@@ -96,8 +97,9 @@
         font-weight: 600;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         transition: all 0.3s ease;
-        padding: 8px 16px;
+        padding: 8px 12px;
         border-radius: 8px;
+        white-space: nowrap;
     }
 
     .ia-nav-link:hover {
@@ -105,32 +107,7 @@
         background: rgba(255, 255, 255, 0.1);
     }
 
-    /* Botón Login */
-    .ia-login-btn {
-        background: white;
-        color: #001C3C;
-        padding: 10px 24px;
-        border-radius: 50px;
-        font-size: 15px;
-        font-weight: 700;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-    }
 
-    .ia-login-btn:hover {
-        background: #f0f0f0;
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
-    }
-
-    .ia-user-icon {
-        font-size: 18px;
-    }
 
     /* Menú móvil */
     .ia-mobile-menu-toggle {
@@ -140,7 +117,7 @@
         color: white;
         font-size: 24px;
         cursor: pointer;
-        padding: 10px 14px;
+        padding: 8px 12px;
         border-radius: 8px;
         transition: all 0.3s ease;
     }
@@ -149,14 +126,30 @@
         background: rgba(255, 255, 255, 0.2);
     }
 
+    /* Overlay para móvil */
+    .ia-menu-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(4px);
+        z-index: 999;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .ia-menu-overlay.active {
+        display: block;
+        opacity: 1;
+    }
+
     /* Responsive */
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
         .ia-top-banner {
             padding: 10px 15px;
-        }
-
-        .ia-top-banner a {
-            font-size: 13px;
         }
 
         .ia-mobile-menu-toggle {
@@ -178,6 +171,8 @@
             box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);
             transition: right 0.4s ease;
             z-index: 1001;
+            align-items: stretch;
+            overflow-y: auto;
         }
 
         .ia-header-nav.active {
@@ -200,35 +195,8 @@
             font-size: 18px;
         }
 
-        .ia-logo-image {
-            display: block;
-            height: 35px;
-            max-height: 35px;
-            max-width: 150px;
-            width: auto;
-            object-fit: contain;
-        }
-
-
-
-        /* Overlay para móvil */
-        .ia-menu-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(4px);
-            z-index: 999;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .ia-menu-overlay.active {
-            display: block;
-            opacity: 1;
+        .ia-header-container {
+            padding: 0 15px;
         }
     }
 </style>
@@ -255,6 +223,8 @@
             <a href="https://institutodelaia.com/cursos/" class="ia-nav-link">Cursos</a>
             <a href="https://institutodelaia.com/conferencias/" class="ia-nav-link">Conferencias</a>
             <a href="https://ialideres.com/" class="ia-nav-link" target="_blank">Conoce nuestra comunidad</a>
+
+
         </nav>
 
         <button class="ia-mobile-menu-toggle" onclick="toggleIAMenu()">
@@ -284,7 +254,7 @@
 
     // Cerrar menú al cambiar tamaño de ventana a desktop
     window.addEventListener('resize', function () {
-        if (window.innerWidth > 768) {
+        if (window.innerWidth > 1024) {
             closeIAMenu();
         }
     });
@@ -297,7 +267,7 @@
     });
 
     // Cerrar menú al hacer click en un link
-    document.querySelectorAll('.ia-nav-link, .ia-login-btn').forEach(link => {
+    document.querySelectorAll('.ia-nav-link').forEach(link => {
         link.addEventListener('click', () => {
             closeIAMenu();
         });

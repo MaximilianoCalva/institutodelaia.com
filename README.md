@@ -3,6 +3,10 @@
 **Versión**: 1.1.0  
 **Última actualización**: Enero 2026
 
+## SEO y Metadata
+**Título del Sitio:** Instituto de la IA - Domina la Inteligencia Artificial Generativa
+**Descripción Corta:** Formación práctica en IA para profesionales. Cursos, diplomados y comunidad exclusiva. Aprende Prompt Engineering y automatización con expertos.
+
 **Sitio web oficial**: https://institutodelaia.com  
 **Tagline**: *Domina la IA Generativa con Estrategia*
 
