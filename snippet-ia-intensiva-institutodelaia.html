@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IA INTENSIVA DOSSIER</title>
+    <style>
+        :root {
+            --brand-primary: #003366;
+            --brand-accent: #0066CC;
+            --text-dark: #001C3C; /* Unified Dark Blue Text */
+            --text-light: #e6e6e6;
+            --bg-dark: #001C3C; /* Unified Dark Blue BG */
+        }
+        
+        /* Modern Reset */
+        .ia-dossier-wrapper * {box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, sans-serif;}
+        .ia-dossier-wrapper { color: #333; line-height: 1.6; background: #fff; max-width: 1200px; margin: 0 auto; overflow: hidden; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); }
+        
+        /* Hero Section */
+        .ia-hero {
+            background: linear-gradient(135deg, var(--bg-dark), var(--brand-primary));
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+        }
+        .ia-hero::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 50px; background: inherit; clip-path: polygon(0 100%, 100% 0, 100% 100%); opacity: 0.1; }
+        
+        .ia-subtitle { color: #ffffff; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; font-size: 0.9rem; margin-bottom: 10px; display: block; opacity: 0.9; }
+        .ia-title { font-size: 3rem; font-weight: 800; margin-bottom: 20px; line-height: 1.1; color: #ffffff !important; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+        .ia-hero-desc { font-size: 1.3rem; max-width: 800px; margin: 0 auto 30px; opacity: 0.9; color: white; }
+        .ia-btn-hero { background: var(--brand-accent); color: #000; padding: 15px 40px; border-radius: 50px; font-weight: 700; text-decoration: none; display: inline-block; transition: transform 0.3s, box-shadow 0.3s; }
+        .ia-btn-hero:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); background: white; }
+
+        /* Sections */
+        .ia-section { padding: 60px 20px; }
+        .ia-section-dark { background: #f8f9fa; }
+        .ia-section-title { text-align: center; font-size: 2.2rem; margin-bottom: 50px; color: var(--text-dark); position: relative; }
+        .ia-section-title::after { content: ''; width: 60px; height: 4px; background: var(--brand-primary); display: block; margin: 15px auto 0; border-radius: 2px; }
+
+        /* Grid */
+        .ia-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1100px; margin: 0 auto; }
+        
+        .ia-card { background: white; padding: 30px; border-radius: 12px; transition: transform 0.3s; border: 1px solid #eee; }
+        .ia-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.08); border-color: var(--brand-primary); }
+        .ia-card-icon { font-size: 2rem; margin-bottom: 20px; color: var(--brand-primary); }
+        .ia-card h3 { margin-bottom: 15px; color: var(--text-dark); }
+        
+        /* Stats/Numbers */
+        .ia-stats-container { background: var(--text-dark); color: white; padding: 60px 20px; text-align: center; }
+        .ia-stat-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 50px; max-width: 1000px; margin: 40px auto 0; }
+        .ia-stat-item { flex: 1; min-width: 200px; }
+        .ia-stat-num { font-size: 3rem; font-weight: 800; color: var(--brand-accent); display: block; }
+        .ia-stat-desc { font-size: 1.1rem; opacity: 0.8; }
+
+        /* Syllabus Accordion Style (Simple) */
+        .ia-syllabus-item { margin-bottom: 20px; background: white; border-radius: 8px; overflow: hidden; border: 1px solid #eee; }
+        .ia-syllabus-header { background: #fdfdfd; padding: 20px; font-weight: 700; color: var(--brand-primary); border-bottom: 1px solid #f0f0f0; display: flex; align-items: center; gap: 10px; }
+        .ia-day-badge { background: var(--brand-primary); color: white; padding: 5px 10px; border-radius: 4px; font-size: 0.8rem; text-transform: uppercase; }
+        .ia-syllabus-content { padding: 25px; color: #555; }
+        .ia-syllabus-content ul { padding-left: 20px; margin-top: 10px; }
+        .ia-syllabus-content li { margin-bottom: 8px; }
+
+        /* Pricing & Action */
+        .ia-cta-box { background: linear-gradient(135deg, #003366 0%, #0066CC 100%); border-radius: 20px; padding: 60px 20px; text-align: center; color: white; max-width: 800px; margin: 0 auto; }
+        .ia-price-tag { font-size: 3.5rem; font-weight: 800; margin: 20px 0; }
+        .ia-price-sub { font-size: 1.2rem; opacity: 0.9; margin-bottom: 30px; }
+        .ia-btn-download { background: white; color: var(--brand-primary); padding: 18px 50px; border-radius: 50px; font-size: 1.2rem; font-weight: 800; text-decoration: none; display: inline-block; box-shadow: 0 10px 25px rgba(0,0,0,0.2); transition: all 0.3s; }
+        .ia-btn-download:hover { transform: scale(1.05); box-shadow: 0 15px 35px rgba(0,0,0,0.3); }
+
+        @media (max-width: 768px) {
+            .ia-title { font-size: 2.2rem; }
+            .ia-stat-grid { flex-direction: column; gap: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="ia-dossier-wrapper">
+    <!-- Hero -->
+    <header class="ia-hero">
+        <span class="ia-subtitle">www.ialideres.com - Instituto de la IA</span>
+        <h1 class="ia-title">IA INTENSIVA DOSSIER<br><span style="font-weight:300; font-size: 0.6em;">UN CURSO PARA SIEMPRE</span></h1>
+        <p class="ia-hero-desc">Moderniza tus habilidades, integra la IA a tu vida y crea resultados reales para tu proyecto, negocio o día a día.</p>
+        <a href="#precio" class="ia-btn-hero">Ver Inversión</a>
+    </header>
+
+    <!-- ¿Qué aprenderás? -->
+    <section class="ia-section ia-section-dark">
+        <h2 class="ia-section-title">¿Qué Aprenderás?</h2>
+        <div class="ia-grid">
+            <div class="ia-card">
+                <div class="ia-card-icon">🧠</div>
+                <h3>Fundamentos de la IA</h3>
+                <p>Crecimiento exponencial de la tecnología y comprensión profunda de las ramas de la inteligencia artificial.</p>
+            </div>
+            <div class="ia-card">
+                <div class="ia-card-icon">💬</div>
+                <h3>IA Generativa y Prompts</h3>
+                <p>Domina prompts efectivos. Conversa con ChatGPT, Gemini y otras herramientas como socios estratégicos.</p>
+            </div>
+            <div class="ia-card">
+                <div class="ia-card-icon">🤖</div>
+                <h3>Agentes IA</h3>
+                <p>Crea agentes personalizados y sistemas autónomos que planean, razonan y ejecutan estrategias completas.</p>
+            </div>
+            <div class="ia-card">
+                <div class="ia-card-icon">🚀</div>
+                <h3>Productividad x480</h3>
+                <p>Casos reales: hasta 32× más económico y 480× más rápido que métodos tradicionales.</p>
+            </div>
+            <div class="ia-card">
+                <div class="ia-card-icon">📈</div>
+                <h3>Negocios Exponenciales</h3>
+                <p>Estrategias para ventas, redes sociales y productos digitales listos para escalar globalmente.</p>
+            </div>
+            <div class="ia-card">
+                <div class="ia-card-icon">👥</div>
+                <h3>Impacto Inmediato</h3>
+                <p>Profesionales, emprendedores y empresarios que integran IA para escalar, reducir costos y automatizar.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upgrade Stat Section -->
+    <div class="ia-stats-container">
+        <h2 style="margin-bottom: 20px; font-size: 2rem;">UPGRADE IA LÍDER</h2>
+        <p style="font-size: 1.2rem; opacity: 0.9;">“Lo que antes tomaba semanas, ahora lo harás en minutos con IA.”</p>
+        <br>
+        <p style="font-size: 1rem; opacity: 0.8; max-width: 700px; margin: 0 auto;">Diferenciación profesional: saldrás del curso con el conocimiento de un líder en innovación y tecnología. Mentalidad futurista: crearás sistemas autónomos que piensan y actúan por sí mismos.</p>
+        
+        <div class="ia-stat-grid">
+            <div class="ia-stat-item">
+                <span class="ia-stat-num">90%</span>
+                <span class="ia-stat-desc">Ahorro en Costos</span>
+            </div>
+            <div class="ia-stat-item">
+                <span class="ia-stat-num">x400</span>
+                <span class="ia-stat-desc">Multiplicación de Velocidad</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Temario Syllabus -->
+    <section class="ia-section">
+        <h2 class="ia-section-title">Temario Intensivo</h2>
+        <div style="max-width: 800px; margin: 0 auto;">
+            
+            <div class="ia-syllabus-item">
+                <div class="ia-syllabus-header">
+                    <span class="ia-day-badge">DÍA 1</span> Modelos LLM y Multimodales
+                </div>
+                <div class="ia-syllabus-content">
+                    <p>Cómo funcionan los modelos generativos y por qué están revolucionando el mundo.</p>
+                    <ul>
+                        <li>Aplicaciones inmediatas en productividad, creatividad y automatización.</li>
+                        <li>Comparativas reales: el antes y el después de aplicar IA en proyectos.</li>
+                        <li>Casos de uso estratégico: creación de productos digitales con LLMs.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="ia-syllabus-item">
+                <div class="ia-syllabus-header">
+                    <span class="ia-day-badge">DÍA 2</span> El Lenguaje de la IA: Prompting Estratégico
+                </div>
+                <div class="ia-syllabus-content">
+                    <p>Aprende a comunicarte con la IA de forma clara y estratégica.</p>
+                    <ul>
+                        <li>Técnicas de prompting avanzado: de lo básico a lo profesional.</li>
+                        <li>Resultados replicables para proyectos digitales y creativos.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="ia-syllabus-item">
+                <div class="ia-syllabus-header">
+                    <span class="ia-day-badge">DÍA 3</span> Creación, Agentes y Upgrade Tecnológico
+                </div>
+                <div class="ia-syllabus-content">
+                    <p>Agentes IA vs. Agentic IA: del asistente puntual al ecosistema autónomo.</p>
+                    <ul>
+                        <li>Construye tu primer agente consultor digital.</li>
+                        <li>Desarrolla un producto digital con IA y consolida tu upgrade tecnológico.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="ia-syllabus-item">
+                <div class="ia-syllabus-header">
+                    <span class="ia-day-badge">DÍA 4</span> Aplicaciones y Casos de Uso
+                </div>
+                <div class="ia-syllabus-content">
+                    <p>Aterrizaje práctico de lo aprendido con herramientas reales.</p>
+                </div>
+            </div>
+            
+            <div class="ia-syllabus-item">
+                <div class="ia-syllabus-header">
+                    <span class="ia-day-badge">DÍA 5</span> Conclusiones y Próximos pasos
+                </div>
+                <div class="ia-syllabus-content">
+                    <p>Consolidación de estrategias y cierre del curso.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Pricing / Download -->
+    <section class="ia-section ia-section-dark" id="precio">
+        <div class="ia-cta-box" style="background: linear-gradient(135deg, #003366 0%, #0066CC 100%);">
+            <h2>Inversión Total</h2>
+            <div class="ia-price-tag">$1,950.00 MXN</div>
+            <p class="ia-price-sub">Referencia: IA | Diploma con valor curricular incluido</p>
+            <br>
+            <a href="https://institutodelaia.com/wp-content/uploads/2026/01/7917-IA-INTENSIVA-DOSSIER.pdf" target="_blank" class="ia-btn-download">
+                📥 Descargar Dossier Completo
+            </a>
+            <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.8;">Accede al PDF oficial de Instituto de la IA</p>
+        </div>
+    </section>
+
+</div>
+
+</body>
+</html>
